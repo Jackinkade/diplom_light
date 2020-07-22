@@ -1,0 +1,29 @@
+{
+  "name": "3dglopromise",
+  "version": "1.0.0",
+  "description": "add export and import",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jackinkade/Lessons.git"
+  },
+  "author": "Jackinkade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jackinkade/Lessons/issues"
+  },
+  "homepage": "https://github.com/Jackinkade/Lessons#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "path": "^0.12.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
