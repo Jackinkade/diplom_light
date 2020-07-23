@@ -45,30 +45,17 @@ const popupDiscount = () => {
 
       }
   };
-  popupBtn2.forEach(elem => {
+  const opens = elems => {
+     elems.forEach(elem => {
       elem.addEventListener('click', () => {
           popup.style.display = 'block';
           openPopup();
       });
   });
-  popupBtn3.forEach(elem => {
-      elem.addEventListener('click', () => {
-          popup.style.display = 'block';
-          openPopup();
-      });
-  });
-    popupBtn4.forEach(elem => {
-      elem.addEventListener('click', () => {
-          popup.style.display = 'block';
-          openPopup();
-      });
-  });
-  popupBtn.forEach(elem => {
-      elem.addEventListener('click', () => {
-          popup.style.display = 'block';
-          openPopup();
-      });
-  });
+  };
+  opens(popupBtn);
+  opens(popupBtn2);
+  opens(popupBtn3);
+  opens(popupBtn4);
 };
-
 export default popupDiscount;
