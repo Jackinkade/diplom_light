@@ -27,10 +27,10 @@ const popupDiscount = () => {
 
    const openPopup = () => {
       if (document.documentElement.clientWidth <= 768) {
+
         popupContent.style.transform = `translate(0)`;
-
-
-          return;
+        popupContent.style.left = 32 + '%';
+        return;
       }
 
       const requestId = requestAnimationFrame(openPopup);
