@@ -9,13 +9,13 @@ const simleAcc = () => {
 		elem.addEventListener('click', event => {
 			event.preventDefault();
 			const foo = (one, two, tree) => {
-				if (one.style.display === 'block') { //collapseThreeId
-					one.style.display = 'block';//collapseThreeId
+				if (one.style.display === 'block') {
+					one.style.display = 'block';
 
 				} else {
-					tree.style.display = 'none';//collapseOneId
-					two.style.display = 'none';//collapseTwoId
-					one.style.display = 'block';//collapseThreeId
+					tree.style.display = 'none';
+					two.style.display = 'none';
+					one.style.display = 'block';
 				}
 			};
 			//One
@@ -28,7 +28,6 @@ const simleAcc = () => {
 			}
 			//Three
 			if (elem.closest('#headingThree-two') || elem.matches('.btnTwo')) {
-
 				foo(collapseThreeId, collapseTwoId, collapseOneId);
 			}
 
