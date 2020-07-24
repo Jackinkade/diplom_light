@@ -6,16 +6,16 @@ const simleAcc = () => {
 		collapseThreeId = document.getElementById('collapseThree-two');
 
 	btnAccordion.forEach(elem => {
-		elem.addEventListener('click', event => {
-			event.preventDefault();
+		elem.addEventListener('click', () => {
 			const foo = (one, two, tree) => {
 				if (one.style.display === 'block') {
-					one.style.display = 'block';
-
-				} else {
 					tree.style.display = 'none';
 					two.style.display = 'none';
+
+				} else {
 					one.style.display = 'block';
+					tree.style.display = 'none';
+					two.style.display = 'none';
 				}
 			};
 			//One
