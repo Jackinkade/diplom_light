@@ -1,41 +1,20 @@
 /* eslint-disable prefer-const */
 const simleAcc = () => {
-	const btnAccordion = document.querySelectorAll(`a[data-parent="#accordion-two"]`),
-		collapseOneId = document.getElementById('collapseOne-two'),
-		collapseTwoId = document.getElementById('collapseTwo-two'),
-		collapseThreeId = document.getElementById('collapseThree-two');
+	const acc = document.querySelectorAll('.panel-collapse');
+	acc.onclick =  e => {
+		e.preventDefault();
+		if (acc.classList.contains('collapse')) {
+			acc.classList.remove('collapse');
+			acc.classList.add('collapse in');
+		} else if (acc.classList.contains('collapse in')) {
+			acc.classList.remove('collapse in');
+			acc.classList.add('collapse');
+		}
 
-	btnAccordion.forEach(elem => {
-		elem.addEventListener('click', () => {
-			const foo = (one, two, tree) => {
-				if (one.style.display === 'block') {
-					tree.style.display = 'none';
-					two.style.display = 'none';
-
-				} else {
-					one.style.display = 'block';
-					tree.style.display = 'none';
-					two.style.display = 'none';
-				}
-			};
-			//One
-			if (elem.closest('#headingOne-two')) {
-				foo(collapseOneId, collapseTwoId, collapseThreeId);
-			}
-			//Two
-			if (elem.closest('#headingTwo-two') || elem.matches('.btnOne')) {
-				foo(collapseTwoId, collapseOneId, collapseThreeId);
-			}
-			//Three
-			if (elem.closest('#headingThree-two') || elem.matches('.btnTwo')) {
-				foo(collapseThreeId, collapseTwoId, collapseOneId);
-			}
-
-		});
-
-	});
-
+	};
+	console.log(acc);
 };
+
 
 
 export default simleAcc;

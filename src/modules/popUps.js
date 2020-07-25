@@ -10,10 +10,10 @@ const popupDiscount = () => {
 
 
   let count = -200;
-
-
   popup.addEventListener('click', event => {
+    event.preventDefault();
     let target = event.target;
+    document.body.style.cssText = `overflow: scroll;`;
     count = -200;
     if (target.classList.contains('popup-close')) {
       popup.style.display = 'none';
@@ -30,6 +30,7 @@ const popupDiscount = () => {
 
         popupContent.style.transform = `translate(0)`;
         popupContent.style.left = 32 + '%';
+
         return;
       }
 

@@ -3,8 +3,8 @@ const accardion = () => {
 	const btnAccordion = document.querySelectorAll(`a[data-parent="#accordion"]`),
 		collapseOneId = document.getElementById('collapseOne'),
 		collapseTwoId = document.getElementById('collapseTwo'),
-		collapseThreeId = document.getElementById('collapseThree'),
-		collapseFourId = document.getElementById('collapseFour');
+		collapseThreeId = document.getElementById('collapseThree');
+	const collapseFourId = document.getElementById('collapseFour');
 
 	btnAccordion.forEach(elem => {
 		elem.addEventListener('click', event => {
