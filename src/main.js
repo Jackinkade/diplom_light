@@ -5,13 +5,13 @@ import popupDiscount from './modules/popUps';
 import addElems from './modules/addElems';
 import accardion from './modules/accardion';
 import simpleAcc from './modules/simleAccardion';
+import mySendFormCalc from './modules/sendForm';
 
-import sendForm from './modules/sendForm';
 popupDiscount();
 addElems();
 accardion();
 simpleAcc();
-sendForm();
+mySendFormCalc.start();
 
 
 
