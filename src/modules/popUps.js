@@ -1,8 +1,8 @@
 /* eslint-disable linebreak-style */
 const popupsAll = () => {
 
-    const btnAlertModal = (btn, popupWindow) => {
-        btn.forEach(elem => {
+    const btnAlertModal = (button, popupWindow) => {
+        button.forEach(elem => {
             elem.addEventListener('click', event => {
                 event.preventDefault();
                 popupWindow.style.display = 'block';
@@ -56,7 +56,6 @@ const popupsAll = () => {
     };
     popupCheck();
 
-    //Popup-discount-calculation
     const popupDiscountCalc = () => {
         const btnDiscountCalc = document.querySelectorAll('.btnFour'),
             popupDiscountCalc = document.querySelector('.popup-discount-calculation'),
@@ -67,7 +66,6 @@ const popupsAll = () => {
     };
     popupDiscountCalc();
 
-    //Popup-consultation
     const popupConsultation = () => {
         const btnConsultation = document.querySelectorAll('.consultation-btn'),
             popupConsultation = document.querySelector('.popup-consultation'),

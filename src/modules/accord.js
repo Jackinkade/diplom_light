@@ -1,43 +1,35 @@
 /* eslint-disable linebreak-style */
 const simpleAcc = () => {
+    const button = document.querySelectorAll('.acc'),
+        buttonAcc = document.querySelectorAll(`a[data-parent="#accordion-two"]`),
+        firstText = document.getElementById('collapseOne-two'),
+        secondText = document.getElementById('collapseTwo-two'),
+        thirdText = document.getElementById('collapseThree-two');
 
-    const btn = document.querySelectorAll('.acc'),
-        btnAcc = document.querySelectorAll(`a[data-parent="#accordion-two"]`),
-        content1 = document.getElementById('collapseOne-two'),
-        content2 = document.getElementById('collapseTwo-two'),
-        content3 = document.getElementById('collapseThree-two');
-    content1.style.maxHeight = content1.scrollHeight + "px";
-
-    btn.forEach(elem => {
+    firstText.style.maxHeight = firstText.scrollHeight + "px";
+    button.forEach(elem => {
         elem.style.cursor = 'pointer';
     });
 
-    btn.forEach(elem => {
+    button.forEach(elem => {
         elem.addEventListener('click', event => {
-
             const target = event.target;
-
-            if (target === btn[0] || target === btnAcc[0]) {
-                content3.style.maxHeight = null;
-                content2.style.maxHeight = null;
-                content1.style.maxHeight = content1.scrollHeight + "px";
+            const changeContent = (one, second, third) => {
+                one.style.maxHeight = firstText.scrollHeight + "px";
+                third.style.maxHeight = null;
+                second.style.maxHeight = null;
+            };
+            if (target === button[0] || target === buttonAcc[0]) {
+                changeContent(firstText, secondText, thirdText);
             }
-            if (target === btn[1] || target === btnAcc[1]) {
-                content3.style.maxHeight = null;
-                content1.style.maxHeight = null;
-                content2.style.maxHeight = content1.scrollHeight + "px";
+            if (target === button[1] || target === buttonAcc[1]) {
+                changeContent(secondText, firstText, thirdText);
             }
-            if (target === btn[2] || target === btnAcc[2]) {
-                content1.style.maxHeight = null;
-                content2.style.maxHeight = null;
-                content3.style.maxHeight = content1.scrollHeight + "px";
+            if (target === button[2] || target === buttonAcc[2]) {
+                changeContent(thirdText, firstText, secondText);
             }
-
         });
     });
-
-
-
 };
 
 

@@ -10,7 +10,6 @@ const calcAcc = () => {
     btnAccordion.forEach(elem => {
         elem.addEventListener('click', event => {
             event.preventDefault();
-            //One
             if (elem.closest('#headingOne')) {
                 if (collapseOneId.style.display === 'none') {
                     collapseOneId.style.display = 'block';
@@ -22,44 +21,25 @@ const calcAcc = () => {
                     collapseOneId.style.display = 'block';
                 }
             }
-            //Two
+            const collapsDispaly = (one, two, three, four) => {
+                if (one.style.display === 'block') {
+                    one.style.display = 'block';
+
+                } else {
+                    two.style.display = 'none';
+                    one.style.display = 'block';
+                    three.style.display = 'none';
+                    four.style.display = 'none';
+                }
+            };
             if (elem.closest('#headingTwo') || elem.matches('.btnOne')) {
-
-                if (collapseTwoId.style.display === 'block') {
-                    collapseTwoId.style.display = 'block';
-
-                } else {
-                    collapseOneId.style.display = 'none';
-                    collapseTwoId.style.display = 'block';
-                    collapseThreeId.style.display = 'none';
-                    collapseFourId.style.display = 'none';
-                }
+                collapsDispaly(collapseTwoId, collapseOneId, collapseThreeId, collapseFourId);
             }
-            //Three
             if (elem.closest('#headingThree') || elem.matches('.btnTwo')) {
-
-                if (collapseThreeId.style.display === 'block') {
-                    collapseThreeId.style.display = 'block';
-
-                } else {
-                    collapseOneId.style.display = 'none';
-                    collapseTwoId.style.display = 'none';
-                    collapseThreeId.style.display = 'block';
-                    collapseFourId.style.display = 'none';
-                }
+                collapsDispaly(collapseThreeId, collapseOneId, collapseTwoId, collapseFourId);
             }
-            //Four
             if (elem.closest('#headingFour') || elem.matches('.btnThree')) {
-
-                if (collapseFourId.style.display === 'block') {
-                    collapseFourId.style.display = 'block';
-
-                } else {
-                    collapseOneId.style.display = 'none';
-                    collapseTwoId.style.display = 'none';
-                    collapseThreeId.style.display = 'none';
-                    collapseFourId.style.display = 'block';
-                }
+                collapsDispaly(collapseFourId, collapseOneId, collapseTwoId, collapseThreeId);
             }
 
         });
