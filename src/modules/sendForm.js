@@ -397,7 +397,6 @@ class SendForm {
       const statusDiv = document.createElement('div');
       statusDiv.classList.add('statusdiv');
 
-      //валидация инпутов
       const valid = (event, form) => {
          const elementsForm = [];
 
@@ -445,7 +444,7 @@ class SendForm {
                }
             }
             if (obj) {
-               for (const key in obj) {
+               for (const key in obj) { //эл. в др. объект
                   body[key] = obj[key];
                }
             }
@@ -478,12 +477,13 @@ class SendForm {
                   console.error(error);
                });
 
-            setTimeout(() => {
+            setTimeout(() => { //убираем сообщение
                form.removeChild(statusDiv);
             }, 3000);
          };
 
-         const removeOblElem = () => {
+         //очистка объекта
+         const resetObj = () => {
             this.elemDoc.calcResult.value = '';
             this.elemDoc.inputDistance.value = '';
             this.obj = {
@@ -523,7 +523,7 @@ class SendForm {
                }
             }
             if (obj) {
-               removeOblElem();
+               resetObj();
             }
          };
 
@@ -541,30 +541,47 @@ class SendForm {
          }
       };
 
-      const send = (event, form) => {
+      //отправка данных с форм
+      mainForm.addEventListener('submit', event => {
          event.preventDefault();
-         valid(event, form);
-         sendReset(event, form);
-      };
-      mainForm.addEventListener('submit', send(event, mainForm));
-      captureForm.addEventListener('submit', send(event, captureForm));
+         valid(event, mainForm);
+         sendReset(event, mainForm);
+      });
 
-      const send2 = (event, from, call) => {
+      captureForm.addEventListener('submit', event => {
          event.preventDefault();
-         valid(event, from);
-         sendReset(event, from);
-         popupNone(call);
-      };
+         valid(event, captureForm);
+         sendReset(event, captureForm);
+      });
 
-      callForm.addEventListener('submit', send2(event, callForm, popupCall));
-      discountForm.addEventListener('submit', send2(event, discountForm, popupDiscount));
-      checkForm.addEventListener('submit', send2(event, checkForm, popupCheck));
-        consultationForm.addEventListener('submit', event => {
+      callForm.addEventListener('submit', event => {
+         event.preventDefault();
+         valid(event, callForm);
+         sendReset(event, callForm);
+         popupNone(popupCall);
+      });
+
+      discountForm.addEventListener('submit', event => {
+         event.preventDefault();
+         valid(event, discountForm);
+         sendReset(event, discountForm);
+         popupNone(popupDiscount);
+      });
+
+      checkForm.addEventListener('submit', event => {
+         event.preventDefault();
+         valid(event, checkForm);
+         sendReset(event, checkForm);
+         popupNone(popupCheck);
+      });
+
+      consultationForm.addEventListener('submit', event => {
          event.preventDefault();
          valid(event, consultationForm);
          sendReset(event, consultationForm, directorForm);
          popupNone(popupConsultation);
       });
+
       discountCalcForm.addEventListener('submit', event => {
          event.preventDefault();
          valid(event, discountCalcForm);
@@ -575,6 +592,7 @@ class SendForm {
    }
 
 }
-const sendAllForm = new SendForm();
 
-export default sendAllForm;
+const mySendFormCalc = new SendForm();
+
+export default mySendFormCalc;

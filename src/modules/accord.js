@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 const simpleAcc = () => {
     const button = document.querySelectorAll('.acc'),
-        buttonAcc = document.querySelectorAll(`a[data-parent="#accordion-two"]`),
+        btnAcc = document.querySelectorAll(`a[data-parent="#accordion-two"]`),
         firstText = document.getElementById('collapseOne-two'),
         secondText = document.getElementById('collapseTwo-two'),
         thirdText = document.getElementById('collapseThree-two');
@@ -19,13 +19,13 @@ const simpleAcc = () => {
                 third.style.maxHeight = null;
                 second.style.maxHeight = null;
             };
-            if (target === button[0] || target === buttonAcc[0]) {
+            if (target === button[0] || target === btnAcc[0]) {
                 changeContent(firstText, secondText, thirdText);
             }
-            if (target === button[1] || target === buttonAcc[1]) {
+            if (target === button[1] || target === btnAcc[1]) {
                 changeContent(secondText, firstText, thirdText);
             }
-            if (target === button[2] || target === buttonAcc[2]) {
+            if (target === button[2] || target === btnAcc[2]) {
                 changeContent(thirdText, firstText, secondText);
             }
         });
