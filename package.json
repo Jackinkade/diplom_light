@@ -1,22 +1,14 @@
 {
-  "name": "3dglopromise",
+  "name": "diplom-shyngys",
   "version": "1.0.0",
-  "description": "add export and import",
-  "main": "main.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --mode=development",
     "build": "webpack --mode=production"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jackinkade/Lessons.git"
-  },
-  "author": "Jackinkade",
+  "author": "Hristofor",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jackinkade/Lessons/issues"
-  },
-  "homepage": "https://github.com/Jackinkade/Lessons#readme",
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
@@ -25,5 +17,8 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.4"
   }
 }

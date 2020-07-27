@@ -1,62 +1,82 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable indent */
-const popupDiscount = () => {
-  const popup = document.querySelector('.popup');
-  const popupContent = document.querySelector('.popup-content');
-  const popupBtn = document.querySelectorAll('.discount-btn');
-  const popupBtn2 = document.querySelectorAll('.call-btn');
-  const popupBtn3 = document.querySelectorAll('.check-btn');
-  const popupBtn4 = document.querySelectorAll('.consultation-btn');
+const popupsAll = () => {
 
+    const btnAlertModal = (btn, popupWindow) => {
+        btn.forEach(elem => {
+            elem.addEventListener('click', event => {
+                event.preventDefault();
+                popupWindow.style.display = 'block';
 
-  let count = -200;
-  popup.addEventListener('click', event => {
-    event.preventDefault();
-    let target = event.target;
-    document.body.style.cssText = `overflow: scroll;`;
-    count = -200;
-    if (target.classList.contains('popup-close')) {
-      popup.style.display = 'none';
-    } else {
-      target = target.closest('.popup-content');
-      if (!target) {
-        popup.style.display = 'none';
-      }
-    }
-  });
+            });
+        });
 
-   const openPopup = () => {
-      if (document.documentElement.clientWidth <= 768) {
+        popupWindow.addEventListener('click', event => {
+            const popupNone = () => {
+                popupWindow.style.display = 'none';
+            };
+            let target = event.target;
+            if (target.matches('.popup-close')) {
+                event.preventDefault();
+                popupNone();
+            } else {
+                target = target.closest('.popup-content');
+                if (!target) {
+                    popupNone();
+                }
+            }
+        });
+    };
+    const popupCall = () => {
+        const popupCall = document.querySelector('.popup-call'),
+            callBtn = document.querySelectorAll('.call-btn'),
+            popupContentCall = document.querySelectorAll('.popup-content')[0],
+            callForm = document.querySelectorAll('.capture-form')[1];
 
-        popupContent.style.transform = `translate(0)`;
-        popupContent.style.left = 32 + '%';
+        btnAlertModal(callBtn, popupCall, popupContentCall, callForm);
+    };
+    popupCall();
 
-        return;
-      }
+    const popupDiscount = () => {
+        const btnDiscount = document.querySelectorAll('.discount-btn'),
+            popupDiscount = document.querySelector('.popup-discount'),
+            popupContentDiscount = document.querySelectorAll('.popup-content')[1],
+            discountForm = document.querySelectorAll('.capture-form')[2];
 
-      const requestId = requestAnimationFrame(openPopup);
+        btnAlertModal(btnDiscount, popupDiscount, popupContentDiscount, discountForm);
+    };
+    popupDiscount();
 
-      count += 20;
-      popupContent.style.left = 40 + '%';
-      popupContent.style.transform = `translate(${count}%)`;
+    const popupCheck = () => {
+        const btnCheck = document.querySelectorAll('.gauging-button'),
+            popupCheck = document.querySelector('.popup-check'),
+            popupContentCheck = document.querySelectorAll('.popup-content')[2],
+            checkForm = document.querySelectorAll('.capture-form')[3];
 
+        btnAlertModal(btnCheck, popupCheck, popupContentCheck, checkForm);
+    };
+    popupCheck();
 
-      if (count >= 0) {
-          cancelAnimationFrame(requestId);
+    //Popup-discount-calculation
+    const popupDiscountCalc = () => {
+        const btnDiscountCalc = document.querySelectorAll('.btnFour'),
+            popupDiscountCalc = document.querySelector('.popup-discount-calculation'),
+            popupContentDiscountCalc = document.querySelectorAll('.popup-content')[4],
+            discountCalcForm = document.querySelectorAll('.capture-form')[5];
 
-      }
-  };
-  const opens = elems => {
-     elems.forEach(elem => {
-      elem.addEventListener('click', () => {
-          popup.style.display = 'block';
-          openPopup();
-      });
-  });
-  };
-  opens(popupBtn);
-  opens(popupBtn2);
-  opens(popupBtn3);
-  opens(popupBtn4);
+        btnAlertModal(btnDiscountCalc, popupDiscountCalc, popupContentDiscountCalc, discountCalcForm);
+    };
+    popupDiscountCalc();
+
+    //Popup-consultation
+    const popupConsultation = () => {
+        const btnConsultation = document.querySelectorAll('.consultation-btn'),
+            popupConsultation = document.querySelector('.popup-consultation'),
+            popupContentConsultation = document.querySelectorAll('.popup-content')[3],
+            consultationForm = document.querySelectorAll('.capture-form')[4];
+
+        btnAlertModal(btnConsultation, popupConsultation, popupContentConsultation, consultationForm);
+    };
+    popupConsultation();
+
 };
-export default popupDiscount;
+export default popupsAll;

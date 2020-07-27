@@ -1,24 +1,24 @@
-const path = require('path');
+/* eslint-disable linebreak-style */
+/* eslint-disable no-undef */
+const path = require("path");
 
 module.exports = {
-  entry: {
-    main: './src/main.js'
-  },
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].js',
-    publicPath: '/dist'
-  },
-  devServer: {
-    overlay: true
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: '/node_modules/'
-      }
-    ]
-  }
-}
+    entry: {
+        main: "./src/index.js",
+    },
+    output: {
+        path: path.resolve(__dirname, "./dist"),
+        filename: "[name].js",
+        publicPath: "/dist",
+    },
+    devServer: {
+        overlay: true,
+    },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            loader: "babel-loader",
+            exclude: "/node_modules",
+        }, ],
+    },
+};

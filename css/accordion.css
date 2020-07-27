@@ -1,0 +1,7 @@
+#collapseOne-two,
+#collapseTwo-two,
+#collapseThree-two {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease-in-out;
+}
